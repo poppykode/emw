@@ -1,0 +1,15 @@
+{% load static %}
+<!-- Card -->
+<div class=" col-lg-4 col-md-4 col-sm-3 col-xs-12">
+    <div class="card">
+        <img class="card-img-top" src="{{instance.project_cover_image.url}}" alt="{{instance.company|title}}"
+            class="img-responsive" style="height: 200px;">
+        <div class="card-body post-block">
+            <h4 class="card-title">{{instance.company|title}}</h4>
+            <p class="card-text">{{instance.project_name|truncatechars:10}}</p>
+            <a href="{% url 'portifolio_clients:project_details' instance.slug %}" class="btn btn-primary">Read More</a>
+        </div>
+    </div>
+
+</div>
+<!-- Card -->

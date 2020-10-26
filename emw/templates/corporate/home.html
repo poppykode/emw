@@ -1,0 +1,175 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}EMW | Home {% endblock %}
+{% block content %}
+<!-- slider-start -->
+<div class="slider">
+    <div class="owl-carousel slider">
+        {% if sliders %}
+        {% for slider in sliders %}
+        <div class="item">
+            <div class="slider-img"> <img src="{{slider.background_image.url}}" alt="{{slider.title}}"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="slider-captions">
+                            <h1 class="slider-title">{{slider.title}}</h1>
+                            <p class="slider-text hidden-xs">{{slider.sub_title}}
+                            </p>
+                            <a href="{{slider.button_link}}"
+                                class="btn btn-primary btn-lg hidden-sm hidden-xs">{{slider.button_title}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+
+        <div class="slider-img" style="height: 100px;text-align: center;">
+            <h1>no sliders added</h1>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+<!-- slider-close -->
+<!-- about-start -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+            <div class="about-section">
+                <h1 class="about-title">welcome to EMW</h1>
+                <p class="lead mb60">EMW Investments (Pvt) Ltd is a Zimbabwean registered company wholly owned by
+                    Zimbabwean
+                    professionals with combined expertise and experience in excess of 20 years.
+                    <!-- The company has
+                    interests in transport,
+                    specialised trucks, contracting in engineering and civil works and plant & equipment hire. The
+                    company also focuses on product supply and distribution services. -->
+                </p>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h3 class="about-title"><a href="{% url 'corporate:logistics' %}">Logistics</a> </h3>
+                        <p>Specialised Trucks, Crane trucks, Tipper Trucks, Refrigerated trucks, General Trucks, Flatbed
+                            trucks, Dropside trucks, Boxed trucks...</p>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h3 class="about-title"><a href="{% url 'corporate:contracting' %}">Contracting</a> </h3>
+                        <p>Conversion of shipping containers into offices or homes, General welding, Work stations,
+                            Brick work,paving, Excavations, Trenching... </p>
+
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                        <div class="build-pic"><img src="{% static 'images/building-bottom-pic.jpg' %}" alt=""
+                                class="img-responsive">
+                        </div>
+                        <div class="about-btn">
+                            <a href="{% url 'corporate:contact' %}" class="btn btn-primary btn-lg">Contact Us</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if projects %}
+<div class="pdt80">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <div class="section-title">
+                    <!-- section title start-->
+                    <h2>Some of Our Projects</h2>
+                </div>
+                <!-- /.section title start-->
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="pdl80"><a href="{% url 'portifolio_clients:projects' %}" class="btn-link">View All
+                        Projects</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+
+
+            <div class="portfolioContainer">
+                {% for pr in projects %}
+                {% include 'base/snippets/projects_snippets.html' with instance=pr %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endif %}
+<div class="testimonial-wrapper">
+    <div class="container">
+        <!-- <div class="row">
+            <div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-12 col-xs-12 text-center ">
+                <h1 style="color: #fff;">OUR VISION </h1>
+                <p style="color: #000;">To be a significant player and best run company in terms of service delivery in
+                    Zimbabwe and the
+                    region
+                </p>
+            </div>
+        </div>
+        <br> -->
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <h1 class="mb30" style="color: #fff;">OUR CORE VALUES</h1>
+                <ul class="chekbox" style="color: #000;text-align: justify;">
+                    <li>Integrity & Professionalism in all our transactions.</li>
+                    <li>Retention of our skills base & intellectual capital.</li>
+                    <li>Pursuit of genuine partnerships with clients and various stakeholders.</li>
+                    <li>Total honesty in all our relationships & in our business operations.</li>
+                    <li>Creativity & innovation</li>
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <h1 class="mb30" style="color: #fff;">STRENGTH AND ADVANTAGES</h1>
+                <ul class="chekbox" style="color: #000;text-align: justify;">
+                    <li>Ability and expertise to offer customised products and services .</li>
+                    <li>Expertise and experience in the management and workshop personne.</li>
+                    <li>Ability to provide quality products and services at affordable cost to customers.</li>
+                    <li>Quick turnaround in execution of projects and great focus on meeting deadlines.</li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{% if blog_news %}
+<div class="space-medium">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <div class="section-title">
+                    <!-- section title start-->
+                    <h2>Latest News &amp; Articles</h2>
+                </div>
+                <!-- /.section title start-->
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="pdl80"><a href="{% url 'news_blog:new_articles' 'all' %}" class="btn-link">View more
+                        news</a>
+                </div>
+            </div>
+        </div>
+        <div class="mt30">
+            <div class="row">
+                {% for bn in blog_news %}
+                {% include 'base/snippets/news_blog.html' with instance=bn %}
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{%  endif %}
+{% endblock %}

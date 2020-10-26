@@ -1,0 +1,26 @@
+{% load static %}
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="post-block">
+        <div class="post-content">
+            <h4><a href="{% url 'news_blog:news_blog_detail' instance.slug %}">{{instance.title|title}}</a></h4>
+            <p class="meta">
+                <span class="meta-date">On {{instance.timestamp|date:"M d Y"}}</span>
+            </p>
+            <p>
+                <span>
+                    {{instance.description|truncatechars:100|safe}}
+                </span>
+            </p>
+
+            <a href="{% url 'news_blog:news_blog_detail' instance.slug %}" class="btn btn-primary ">Read More</a>
+        </div>
+    </div>
+</div>
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+    <div class="post-img">
+        <!-- post img -->
+        <a href="{% url 'news_blog:news_blog_detail' instance.slug %}" class="imghover"><img
+                src="{{instance.image.url}}" alt="{{instance.title|title}}" class="img-responsive"
+                style="width: 750px; height: 380px;"></a>
+    </div>
+</div>

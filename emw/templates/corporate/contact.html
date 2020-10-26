@@ -1,0 +1,107 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}EMW | Contact Us {% endblock %}
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-section">
+                    <h1 class="page-title ">CONTACT US </h1>
+                    <p class="page-text">For all your enquiries and queries please contact us, by filling the form
+                        below. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="space-medium">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% if messages %}
+                {% for message in messages %}
+                <div class=" alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <div class="contact-block">
+                    <div class="contact-info">
+                        <ul>
+                            <li><i class="icon-location-1"></i>
+                                <div class="contact-head ">
+                                    <h4>EMW Investments P/L</h4>
+                                    <p>1 Adylinn Rd, Marlborough, Harare, Zimbabwe</p>
+                                </div>
+                            </li>
+                            <li><i class="icon-phone-call"></i>
+                                <div class="contact-head ">
+                                    <h4>Call Us</h4>
+                                    <p>+263 779 127 377</p>
+                                    <p> +263 772 704 741</p>
+                                </div>
+                            </li>
+                            <li><i class=" icon-mail"></i>
+                                <div class="contact-head ">
+                                    <h4>Email Us</h4>
+                                    <p>admin@emw.co.zw</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <div class="mb30">
+                    <h1>Get In Touch</h1>
+                    <p class="mb40">Submit your contact details and we’ll be in touch shortly. </p>
+                    <div class="row">
+                        <form method="POST" action="{% url 'corporate:contact' %}">
+                            {% csrf_token %}
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label sr-only " for="name"></label>
+                                    <input id="name" type="text" placeholder="Name" class="form-control" name="name"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label sr-only " for="email"></label>
+                                    <input id="email" type="text" placeholder="Email" class="form-control" name="email"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label sr-only " for="subject"></label>
+                                    <input id="subject" type="text" placeholder="Subject" class="form-control"
+                                        name="subject" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label sr-only" for="textarea"></label>
+                                    <textarea class="form-control" id="textarea" name="textarea" rows="8"
+                                        placeholder="Messages" name="textarea" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <button class="btn btn-primary">send us message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

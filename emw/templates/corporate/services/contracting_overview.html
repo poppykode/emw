@@ -1,0 +1,76 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}EMW | Contracting Services{% endblock %}
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-section">
+                    <h1 class="page-title ">Contracting Services </h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="space-medium">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                <div class="related-post">
+                    <!-- related post -->
+                    <div class="related-img">
+                        <a href="{% url 'corporate:steel_fabrication' %}" class="imghover"><img
+                                src="{% static 'images/related-post-2.jpg' %}" alt="steel-fabrication"
+                                class="img-responsive" style="width: 100%;"></a>
+                    </div>
+                    <div class="related-post-content">
+                        <h4 class="related-title"><a href="{% url 'corporate:steel_fabrication' %}" class="title">Steel
+                                Fabrication</a></h4>
+
+                    </div>
+                </div>
+                <!-- /.related post -->
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                <div class="related-post">
+                    <!-- related post -->
+                    <div class="related-img">
+                        <a href="{% url 'corporate:joinery' %}" class="imghover"><img
+                                src="{% static 'images/related-post-1.jpg' %}" alt="joinery" class="img-responsive"
+                                style="width: 100%;"></a>
+                    </div>
+                    <div class="related-post-content">
+                        <h4 class="related-title"><a href="{% url 'corporate:joinery' %}" class="title">Joinery
+                            </a></h4>
+
+                    </div>
+                </div>
+                <!-- /.related post -->
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                <div class="related-post">
+                    <!-- related post -->
+                    <div class="related-img">
+                        <a href="{% url 'corporate:construction_and_civils' %}" class="imghover"><img
+                                src="{% static 'images/related-post-2.jpg' %}" alt="construction-and-civil"
+                                class="img-responsive" style="width: 100%;"></a>
+                    </div>
+                    <div class="related-post-content">
+                        <h4 class="related-title"><a href="{% url 'corporate:construction_and_civils' %}"
+                                class="title">Contraction
+                                &amp;
+                                Civils</a></h4>
+
+                    </div>
+                </div>
+                <!-- /.related post -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
